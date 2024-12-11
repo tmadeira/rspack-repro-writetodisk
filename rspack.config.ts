@@ -15,11 +15,20 @@ export default defineConfig({
 	resolve: {
 		extensions: ["...", ".ts", ".tsx", ".jsx"]
 	},
+	devServer: {
+		devMiddleware: {
+			writeToDisk: true
+		}
+	},
 	module: {
 		rules: [
 			{
 				test: /\.svg$/,
 				type: "asset"
+			},
+			{
+				test: /\.css$/,
+				type: "asset/resource"
 			},
 			{
 				test: /\.(jsx?|tsx?)$/,
